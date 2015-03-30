@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/resource', resources);
 
-var dbName = 'meetingRoom';
+var dbName = 'test';
 var connectionString = 'mongodb://localhost:27017/' + dbName;
 mongoose.connect(connectionString);
 

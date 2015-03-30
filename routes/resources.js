@@ -9,22 +9,29 @@ router.route('/:id').get(function(req, res, next) {
       return res.send(err);
     }
 
+    
+
     ical.fromURL(resource.url, {}, function(err, data) {
-      console.log('got some data from ical')
+      events = [];
       for (var k in data){
-        if (data.hasOwnProperty(k)) {
+      if (data.hasOwnProperty(k)) {
           var ev = data[k]
-          console.log("Conference",
-            ev.summary,
-            'is in',
-            ev.location,
-            'on the', ev.start );
+          events.push(new CalendarEntry(ev));
         }
       }
-      res.render('resource', {resource: JSON.stringify(data)});
+      console.log(events.length+' '+events[0].summary)
+      res.render('resource', {events: events});
     });
   });
 });
+
+CalendarEntry = function(event) {
+  this.event = JSON.stringify(event);
+  this.summary = event.summary;
+  this.organiser = null;
+  this.startTime = event.start;
+  this.endTime = event.end
+}
 
 
 module.exports = router;

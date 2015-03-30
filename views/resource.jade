@@ -2,4 +2,9 @@ extends layout
 
 block content
   h1 Test
-  p !{resource}
+  
+  <ul>
+  #events
+    for event in events
+      li Summary : #{event.summary} + #{event.event}
+  </ul>
