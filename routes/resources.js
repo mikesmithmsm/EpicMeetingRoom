@@ -15,7 +15,7 @@ router.route('/:id').get(function(req, res, next) {
       res.render('resource', {events: ical.events()});
       events = ical.events();
 
-      var currentDateTime = new Date( 2015, 2, 30, 08, 15, 0, 0 )
+      var currentDateTime = new Date( 2015, 2, 30, 16, 15, 0, 0 )
       var endOfDayDateTime = new Date( 2015, 2, 30, 23, 25, 0, 0 );
       var currentEvent = null;
       var nextEvent = null;
@@ -42,7 +42,6 @@ router.route('/:id').get(function(req, res, next) {
       }
 
       console.log('>> NOW is '+currentEvent+', NEXT is '+nextEvent);
-
       res.render('resource', {now: currentEvent, next: nextEvent, resource: resource});
     })
   });

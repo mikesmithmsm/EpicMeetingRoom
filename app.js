@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/resource', resources);
+app.locals.moment = require('moment');
 
 var dbName = 'test';
 var connectionString = 'mongodb://localhost:27017/' + dbName;

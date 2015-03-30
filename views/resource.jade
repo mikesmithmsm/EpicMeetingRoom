@@ -1,10 +1,30 @@
 extends layout
 
 block content
-  h1 Test
-  
-  <ul>
-  #events
-    for event in events
-      li Summary : #{event.SUMMARY} + #{event.getPropertyValue("SUMMARY")}
-  </ul>
+  div.row.row-offcanvas.row-offcanvas-right
+
+    div.col-xs-12.col-sm-9
+      
+      div.jumbotron.white
+        - if (now)
+          h1 #{now.getPropertyValue('SUMMARY')}
+          span(class='glyphicon glyphicon-time')
+          h2 #{moment(now.getPropertyValue('DTSTART')).format('HH:mm')} - #{moment(now.getPropertyValue('DTEND')).format('HH:mm')}
+        - else
+          h1 Available
+          - if (next)
+            span(class='glyphicon glyphicon-time')
+            h2 now - #{moment(next.getPropertyValue('DTSTART')).format('HH:mm')}
+
+    div.col-xs-6.col-sm-3.sidebar-offcanvas.pull-right
+      h3 #{resource.name}
+      span.glyphicon.glyphicon-calendar
+      span #{moment().format('DD/MM/YYYY')}
+
+  div.dark.container
+    h3 Next
+    - if (next)
+      h4 #{next.getPropertyValue('SUMMARY')}
+      h5 #{moment(next.getPropertyValue('DTSTART')).format('HH:mm')} - #{moment(next.getPropertyValue('DTEND')).format('HH:mm')}
+    - else
+      h4 Available
