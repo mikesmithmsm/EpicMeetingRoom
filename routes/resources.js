@@ -12,23 +12,8 @@ router.route('/:id').get(function(req, res, next) {
 
     request(resource.url, function (error, response, data) {
       var ical = icalendar.parse_calendar(data);
-      console.log('parsed' +ical.events().length  )
-      res.render('resource', {events: ical.events()});
-      events = ical.events();
-
-
-      now = findEvent(events, new Date(), plusOneMinute(new Date()));
-
-      console.log('got now '+now.getPropertyValue('SUMMARY'))
-
-      if (now != null) {
-        var dtend = now.getPropertyValue('DTEND');
-        dtend = new Date(dtend.valueOf());
-        next = findEvent(events, dtend, plusOneMinute(dtend));
-
-        console.log('got next '+next.getPropertyValue('SUMMARY'))
-      }
-      
+      var events = ical.events();
+      res.render('resource', {now: events[1], next: events[2], resource: resource});
     })
   });
 });
