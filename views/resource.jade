@@ -16,6 +16,6 @@ block content
       span #{moment().format('dd/MM/YYYY')}
 
   div.dark.container
-    h4 Next
-    h5 #{next.getPropertyValue('SUMMARY')}
-    p #{moment(next.getPropertyValue('DTSTART')).format('hh:mm')} - #{moment(next.getPropertyValue('DTEND')).format('hh:mm')}
+    h3 Next
+    h4 #{next.getPropertyValue('SUMMARY')}
+    h5 #{moment(next.getPropertyValue('DTSTART')).format('hh:mm')} - #{moment(next.getPropertyValue('DTEND')).format('hh:mm')}
