@@ -5,17 +5,26 @@ block content
 
     div.col-xs-12.col-sm-9
 
+      div.dark.container
+        h4 Meeting Room '#{resource.name}'
+        span.glyphicon.glyphicon-calendar
+        span  #{moment().format('DD/MM/YYYY')}
+      
       div.jumbotron.white
-        h1 #{now.getPropertyValue('SUMMARY')}
-        span(class='glyphicon glyphicon-time')
-        h2 #{moment(now.getPropertyValue('DTSTART')).format('hh:mm')} - #{moment(now.getPropertyValue('DTEND')).format('hh:mm')}
-
-    div.col-xs-6.col-sm-3.sidebar-offcanvas.pull-right
-      h3 #{resource.name}
-      span.glyphicon.glyphicon-calendar
-      span #{moment().format('dd/MM/YYYY')}
-
+        - if (now)
+          h1 #{now.getPropertyValue('SUMMARY')}
+          span(class='glyphicon glyphicon-time')
+          h2 #{moment(now.getPropertyValue('DTSTART')).format('HH:mm')} - #{moment(now.getPropertyValue('DTEND')).format('HH:mm')}
+        - else
+          h1 Available
+          - if (next)
+            span(class='glyphicon glyphicon-time')
+            h2 now - #{moment(next.getPropertyValue('DTSTART')).format('HH:mm')}
+  
   div.dark.container
     h3 Next
-    h4 #{next.getPropertyValue('SUMMARY')}
-    h5 #{moment(next.getPropertyValue('DTSTART')).format('hh:mm')} - #{moment(next.getPropertyValue('DTEND')).format('hh:mm')}
+    - if (next)
+      h4 #{next.getPropertyValue('SUMMARY')}
+      h5 #{moment(next.getPropertyValue('DTSTART')).format('HH:mm')} - #{moment(next.getPropertyValue('DTEND')).format('HH:mm')}
+    - else
+      h4 Available

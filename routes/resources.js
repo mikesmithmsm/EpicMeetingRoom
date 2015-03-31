@@ -12,25 +12,76 @@ router.route('/:id').get(function(req, res, next) {
 
     request(resource.url, function (error, response, data) {
       var ical = icalendar.parse_calendar(data);
-      var events = ical.events();
-      res.render('resource', {now: events[1], next: events[2], resource: resource});
+      res.render('resource', {events: ical.events()});
+      events = ical.events();
+
+      var currentDateTime = new Date()
+      var endOfDayDateTime = new Date();
+      endOfDayDateTime.setHours(23)
+      endOfDayDateTime.setMinutes(59)
+      var currentEvent = null;
+      var nextEvent = null;
+      var currentIndex = 0;      
+      var found = false;
+
+      eventsInRange = findEvent(events, currentDateTime, endOfDayDateTime);
+
+      eventsInRange.forEach(function(event, index) {
+        if (event.inTimeRange(currentDateTime, plusOneMinute(currentDateTime))) {
+          currentIndex = index;
+          found = true;
+          currentEvent = event;
+        }
+      });
+
+      if (!found) {
+        eventsInRange = findEvent(events, currentDateTime, endOfDayDateTime);
+        if (eventsInRange.length > 0) {
+          nextEvent = eventsInRange[0];
+        }
+      } else {
+        nextEvent = eventsInRange[currentIndex+1];
+      }
+
+      console.log('>> NOW is '+currentEvent+', NEXT is '+nextEvent);
+      res.render('resource', {now: currentEvent, next: nextEvent, resource: resource});
     })
   });
 });
 
+function printEvent(eventName, event) {
+  if(event != null){
+    console.log(eventName + " = "+event.getPropertyValue("SUMMARY") + ", startDate id "+event.getPropertyValue('DTSTART') + ", endDate is "+event.getPropertyValue('DTEND') );  
+  }else{
+    console.log(eventName + " is NULL");
+  }
+}
+
 function plusOneMinute(time) {
-  return time.setTime(time.getTime() + 1000 * 60);
+  t = time.getTime();
+  return new Date(t + (1000 * 60));
 }
 
 function findEvent(events, startTime, endTime) {
-  var toReturn = null;
+  var eventsInDateRange = [];
   events.forEach(function(event) {
     if (event.inTimeRange(startTime, endTime)) {
-      toReturn =  event;
+      eventsInDateRange.push(event);
     }
   });
 
-  return toReturn;
+  eventsInDateRange.sort(function(a, b) {
+    var aDate = a.getPropertyValue('DTSTART')
+    var bDate = b.getPropertyValue('DTSTART')
+    if (aDate.getHours() == bDate.getHours()) {
+       return aDate.getMinutes() - bDate.getMinutes();
+    }
+
+    return aDate.getHours() - bDate.getHours();
+  });
+
+  return eventsInDateRange;
 }
+
 
 module.exports = router;

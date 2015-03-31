@@ -1,0 +1,147 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ 'c:\\workspace\\EpicMeetingRoom',
+5 verbose install   [ 'body-parser',
+5 verbose install     'cookie-parser',
+5 verbose install     'debug',
+5 verbose install     'express',
+5 verbose install     'jade',
+5 verbose install     'morgan',
+5 verbose install     'serve-favicon',
+5 verbose install     'mongoose',
+5 verbose install     'moment',
+5 verbose install     'node-icalendar',
+5 verbose install     'request' ] ]
+6 info preinstall EpicMeetingRoom@0.0.0
+7 verbose readDependencies using package.json deps
+8 verbose already installed skipping body-parser@~1.12.0 c:\workspace\EpicMeetingRoom
+9 verbose already installed skipping cookie-parser@~1.3.4 c:\workspace\EpicMeetingRoom
+10 verbose already installed skipping debug@~2.1.1 c:\workspace\EpicMeetingRoom
+11 verbose already installed skipping express@~4.12.2 c:\workspace\EpicMeetingRoom
+12 verbose already installed skipping jade@~1.9.2 c:\workspace\EpicMeetingRoom
+13 verbose already installed skipping morgan@~1.5.1 c:\workspace\EpicMeetingRoom
+14 verbose already installed skipping serve-favicon@~2.2.0 c:\workspace\EpicMeetingRoom
+15 verbose already installed skipping mongoose@~3.8.11 c:\workspace\EpicMeetingRoom
+16 verbose cache add [ 'moment@1.3.0', null ]
+17 verbose cache add name=undefined spec="moment@1.3.0" args=["moment@1.3.0",null]
+18 verbose parsed url { protocol: null,
+18 verbose parsed url   slashes: null,
+18 verbose parsed url   auth: null,
+18 verbose parsed url   host: null,
+18 verbose parsed url   port: null,
+18 verbose parsed url   hostname: null,
+18 verbose parsed url   hash: null,
+18 verbose parsed url   search: null,
+18 verbose parsed url   query: null,
+18 verbose parsed url   pathname: 'moment@1.3.0',
+18 verbose parsed url   path: 'moment@1.3.0',
+18 verbose parsed url   href: 'moment@1.3.0' }
+19 verbose cache add [ 'node-icalendar@git://github.com/tritech/node-icalendar.git',
+19 verbose cache add   null ]
+20 verbose cache add name=undefined spec="node-icalendar@git://github.com/tritech/node-icalendar.git" args=["node-icalendar@git://github.com/tritech/node-icalendar.git",null]
+21 verbose parsed url { protocol: null,
+21 verbose parsed url   slashes: null,
+21 verbose parsed url   auth: null,
+21 verbose parsed url   host: null,
+21 verbose parsed url   port: null,
+21 verbose parsed url   hostname: null,
+21 verbose parsed url   hash: null,
+21 verbose parsed url   search: null,
+21 verbose parsed url   query: null,
+21 verbose parsed url   pathname: 'node-icalendar@git://github.com/tritech/node-icalendar.git',
+21 verbose parsed url   path: 'node-icalendar@git://github.com/tritech/node-icalendar.git',
+21 verbose parsed url   href: 'node-icalendar@git://github.com/tritech/node-icalendar.git' }
+22 verbose already installed skipping request@2.54.0 c:\workspace\EpicMeetingRoom
+23 verbose cache add name="moment" spec="1.3.0" args=["moment","1.3.0"]
+24 verbose parsed url { protocol: null,
+24 verbose parsed url   slashes: null,
+24 verbose parsed url   auth: null,
+24 verbose parsed url   host: null,
+24 verbose parsed url   port: null,
+24 verbose parsed url   hostname: null,
+24 verbose parsed url   hash: null,
+24 verbose parsed url   search: null,
+24 verbose parsed url   query: null,
+24 verbose parsed url   pathname: '1.3.0',
+24 verbose parsed url   path: '1.3.0',
+24 verbose parsed url   href: '1.3.0' }
+25 verbose addNamed [ 'moment', '1.3.0' ]
+26 verbose addNamed [ '1.3.0', '1.3.0' ]
+27 verbose cache add name="node-icalendar" spec="git://github.com/tritech/node-icalendar.git" args=["node-icalendar","git://github.com/tritech/node-icalendar.git"]
+28 verbose parsed url { protocol: 'git:',
+28 verbose parsed url   slashes: true,
+28 verbose parsed url   auth: null,
+28 verbose parsed url   host: 'github.com',
+28 verbose parsed url   port: null,
+28 verbose parsed url   hostname: 'github.com',
+28 verbose parsed url   hash: null,
+28 verbose parsed url   search: null,
+28 verbose parsed url   query: null,
+28 verbose parsed url   pathname: '/tritech/node-icalendar.git',
+28 verbose parsed url   path: '/tritech/node-icalendar.git',
+28 verbose parsed url   href: 'git://github.com/tritech/node-icalendar.git' }
+29 silly lockFile 7bf14866-moment-1-3-0 moment@1.3.0
+30 verbose lock moment@1.3.0 C:\Users\Mike.Quayle\AppData\Roaming\npm-cache\7bf14866-moment-1-3-0.lock
+31 silly lockFile 65752361-b-com-tritech-node-icalendar-git git://github.com/tritech/node-icalendar.git
+32 verbose lock git://github.com/tritech/node-icalendar.git C:\Users\Mike.Quayle\AppData\Roaming\npm-cache\65752361-b-com-tritech-node-icalendar-git.lock
+33 verbose addRemoteGit [ 'git://github.com/tritech/node-icalendar.git', 'master' ]
+34 verbose request where is /moment
+35 verbose request registry https://registry.npmjs.org/
+36 verbose request id 1d7d11168bba8ff7
+37 verbose url raw /moment
+38 verbose url resolving [ 'https://registry.npmjs.org/', './moment' ]
+39 verbose url resolved https://registry.npmjs.org/moment
+40 verbose request where is https://registry.npmjs.org/moment
+41 info trying registry request attempt 1 at 19:32:12
+42 verbose etag "A1AIGNR61W02BOQN101UXZL1Y"
+43 http GET https://registry.npmjs.org/moment
+44 warn `git config --get remote.origin.url` returned wrong result (git://github.com/tritech/node-icalendar.git)
+45 http 304 https://registry.npmjs.org/moment
+46 silly registry.get cb [ 304,
+46 silly registry.get   { date: 'Mon, 30 Mar 2015 18:32:13 GMT',
+46 silly registry.get     server: 'Apache',
+46 silly registry.get     via: '1.1 varnish',
+46 silly registry.get     'last-modified': 'Mon, 30 Mar 2015 18:31:23 GMT',
+46 silly registry.get     'cache-control': 'max-age=60',
+46 silly registry.get     etag: '"A1AIGNR61W02BOQN101UXZL1Y"',
+46 silly registry.get     age: '50',
+46 silly registry.get     'x-served-by': 'cache-lhr6322-LHR',
+46 silly registry.get     'x-cache': 'HIT',
+46 silly registry.get     'x-cache-hits': '2',
+46 silly registry.get     'x-timer': 'S1427740333.451382,VS0,VE0',
+46 silly registry.get     vary: 'Accept',
+46 silly registry.get     'content-length': '0',
+46 silly registry.get     'keep-alive': 'timeout=10, max=50',
+46 silly registry.get     connection: 'Keep-Alive' } ]
+47 verbose etag https://registry.npmjs.org/moment from cache
+48 silly lockFile 7bf14866-moment-1-3-0 moment@1.3.0
+49 silly lockFile 7bf14866-moment-1-3-0 moment@1.3.0
+50 error git clone git://github.com/tritech/node-icalendar.git Cloning into bare repository 'C:\Users\Mike.Quayle\AppData\Roaming\npm-cache\_git-remotes\git-github-com-tritech-node-icalendar-git-65752361'...
+50 error git clone git://github.com/tritech/node-icalendar.git fatal: unable to connect to github.com:
+50 error git clone git://github.com/tritech/node-icalendar.git github.com[0: 192.30.252.130]: errno=No error
+51 silly lockFile 65752361-b-com-tritech-node-icalendar-git git://github.com/tritech/node-icalendar.git
+52 silly lockFile 65752361-b-com-tritech-node-icalendar-git git://github.com/tritech/node-icalendar.git
+53 error Error: Command failed: Cloning into bare repository 'C:\Users\Mike.Quayle\AppData\Roaming\npm-cache\_git-remotes\git-github-com-tritech-node-icalendar-git-65752361'...
+53 error fatal: unable to connect to github.com:
+53 error github.com[0: 192.30.252.130]: errno=No error
+53 error
+53 error
+53 error     at ChildProcess.exithandler (child_process.js:658:15)
+53 error     at ChildProcess.emit (events.js:98:17)
+53 error     at maybeClose (child_process.js:766:16)
+53 error     at Process.ChildProcess._handle.onexit (child_process.js:833:5)
+54 error If you need help, you may report this *entire* log,
+54 error including the npm and node versions, at:
+54 error     <http://github.com/npm/npm/issues>
+55 error System Windows_NT 6.1.7601
+56 error command "c:\\Program Files\\nodejs\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+57 error cwd c:\workspace\EpicMeetingRoom
+58 error node -v v0.10.35
+59 error npm -v 1.4.28
+60 error code 128
+61 verbose exit [ 1, true ]
