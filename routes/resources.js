@@ -15,8 +15,10 @@ router.route('/:id').get(function(req, res, next) {
       res.render('resource', {events: ical.events()});
       events = ical.events();
 
-      var currentDateTime = new Date( 2015, 2, 30, 16, 15, 0, 0 )
-      var endOfDayDateTime = new Date( 2015, 2, 30, 23, 25, 0, 0 );
+      var currentDateTime = new Date()
+      var endOfDayDateTime = new Date();
+      endOfDayDateTime.setHours(23)
+      endOfDayDateTime.setMinutes(59)
       var currentEvent = null;
       var nextEvent = null;
       var currentIndex = 0;      

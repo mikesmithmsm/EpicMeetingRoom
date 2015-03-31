@@ -4,6 +4,11 @@ block content
   div.row.row-offcanvas.row-offcanvas-right
 
     div.col-xs-12.col-sm-9
+
+      div.dark.container
+        h4 Meeting Room '#{resource.name}'
+        span.glyphicon.glyphicon-calendar
+        span  #{moment().format('DD/MM/YYYY')}
       
       div.jumbotron.white
         - if (now)
@@ -15,12 +20,7 @@ block content
           - if (next)
             span(class='glyphicon glyphicon-time')
             h2 now - #{moment(next.getPropertyValue('DTSTART')).format('HH:mm')}
-
-    div.col-xs-6.col-sm-3.sidebar-offcanvas.pull-right
-      h3 #{resource.name}
-      span.glyphicon.glyphicon-calendar
-      span #{moment().format('DD/MM/YYYY')}
-
+  
   div.dark.container
     h3 Next
     - if (next)
